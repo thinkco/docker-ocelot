@@ -23,16 +23,49 @@ build:
   except:
     - master
 
-deploy:
+deploy:osx-x64:
   stage: deploy
   image: microsoft/dotnet:2.2-sdk
   script:
-    - ./publish.sh
+    - dotnet publish -c Release -r osx-x64
   only:
     - master
   artifacts:
     untracked: false
-    name: "published"
+    name: "osx-x64"
     paths:
-      - bin/Release/netcoreapp2.2/*
+      - bin/Release/netcoreapp2.2/osx-x64/publish/
     expire_in: 1 week
+
+deploy:win-x64:
+  stage: deploy
+  image: microsoft/dotnet:2.2-sdk
+  script:
+    - dotnet publish -c Release -r win-x64
+  only:
+    - master
+  artifacts:
+    untracked: false
+    name: "osx-x64"
+    paths:
+      - bin/Release/netcoreapp2.2/win-x64/publish/
+    expire_in: 1 week
+
+deploy:linux-x64:
+  stage: deploy
+  image: microsoft/dotnet:2.2-sdk
+  script:
+    - dotnet publish -c Release -r linux-x64
+  only:
+    - master
+  artifacts:
+    untracked: false
+    name: "osx-x64"
+    paths:
+      - bin/Release/netcoreapp2.2/linux-x64/publish/
+    expire_in: 1 week
+
+# Targets="win-x64 win-x86 win-arm win-arm64 linux-x64 linux-musl-x64 linux-arm osx-x64"
+# for target in $Targets; do
+#     dotnet publish -c Release -r $target
+# done
