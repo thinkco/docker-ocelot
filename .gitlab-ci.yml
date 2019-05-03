@@ -23,10 +23,16 @@ build:
   except:
     - master
 
-publish:
-  stage: build
+deploy:
+  stage: deploy
   image: microsoft/dotnet:2.2-sdk
   script:
     - ./publish.sh
   only:
     - master
+  artifacts:
+    untracked: false
+    name: "published"
+    paths:
+      - bin/Release/netcoreapp2.2/*
+    expire_in: 1 week
