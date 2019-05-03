@@ -17,7 +17,7 @@ deploy:docker-tagged:
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
   except:
     - master
-    
+
 # Create self-contained executables for supported platforms
 # Targets="win-x64 win-x86 win-arm win-arm64 linux-x64 linux-musl-x64 linux-arm osx-x64"
 deploy:osx-x64:
@@ -70,7 +70,7 @@ deploy:linux-arm:
   image: microsoft/dotnet:2.2-sdk
   script:
     - dotnet publish -c Release -r linux-arm
-    - mv bin/Release/netcoreapp2.2/linux-arm/publish linux-x64
+    - mv bin/Release/netcoreapp2.2/linux-arm/publish linux-arm
   only:
     - master
   artifacts:
