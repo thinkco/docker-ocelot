@@ -50,6 +50,10 @@ namespace ThinkCode.Ocelot
                         .AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
                         .AddEnvironmentVariables();
 
+                        Log.Logger = new LoggerConfiguration()
+                            .ReadFrom.Configuration(config.Build())
+                            .CreateLogger();
+
                 })
                 .ConfigureServices(services =>
                 {
@@ -60,8 +64,8 @@ namespace ThinkCode.Ocelot
                 })
                 .ConfigureLogging((hostingContext, logging) =>
                 {
-                    //logging.ClearProviders();
-                    logging.AddSerilog();
+                    logging.ClearProviders();
+                    logging.AddSerilog(dispose: true);
                     //Log.Logger = new LoggerConfiguration()
                         //.MinimumLevel.Verbose()
                         //.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
