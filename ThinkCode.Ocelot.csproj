@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NetEscapades.Configuration.Yaml" Version="1.6.0" />
     <PackageReference Include="ocelot" Version="13.5.0" />
     <PackageReference Include="Ocelot.Provider.Consul" Version="13.5.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />

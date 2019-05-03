@@ -44,10 +44,15 @@ namespace ThinkCode.Ocelot
                 {
                     config
                         .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-                        .AddJsonFile("appsettings.json", true, true)
-                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-                        .AddJsonFile("ocelot.json", false, true)
-                        .AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
+                        // JSON doesn't accept comments... Use YAML instead, cleaner 😙 -> https://www.json2yaml.com/
+                        //.AddJsonFile("appsettings.json", true, true)
+                        //.AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
+                        //.AddJsonFile("ocelot.json", false, true)
+                        //.AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
+                        .AddYamlFile("appsettings.yaml", true, true)
+                        .AddYamlFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.yaml", true, true)
+                        .AddYamlFile("ocelot.yaml", false, true)
+                        .AddYamlFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.yaml", true, true)
                         .AddEnvironmentVariables();
 
                         Log.Logger = new LoggerConfiguration()

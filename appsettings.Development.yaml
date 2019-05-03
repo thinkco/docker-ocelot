@@ -1,0 +1,31 @@
+---
+Logging:
+  LogLevel:
+    Default: Debug
+    System: Information
+    Microsoft: Information
+    Microsoft.Hosting.Lifetime: Information
+    Ocelot.Configuration.Repository.FileConfigurationPoller: Error
+Serilog:
+  Using:
+  - Serilog.Sinks.Console
+  MinimumLevel: Debug
+  WriteTo:
+  - Name: Console
+    Args:
+      outputTemplate: "{Timestamp:o} [{Level:u3}] ({Application}/{MachineName}/{ThreadId})
+        {Message}{NewLine}{Exception}"
+      theme: Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console
+  Enrich:
+  - FromLogContext
+  - WithMachineName
+  - WithThreadId
+  Properties:
+    Application: Ocelot
+AllowedHosts: localhost
+Kestrel:
+  EndPoints:
+    Http:
+      Url: http://localhost:8080
+    Https:
+      Url: https://localhost:8443
