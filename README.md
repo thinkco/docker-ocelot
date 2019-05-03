@@ -1,2 +1,2 @@
-# docker-ocelot
+# Ocelot
 
