@@ -119,5 +119,5 @@ GlobalConfiguration:
     Port: 8500
     Type: Consul
     PollingInterval: 1000
-    ConfigurationKey: ApiGateway-localhost
+    ConfigurationKey: OcelotGateway
   RequestIdKey: OcRequestId
