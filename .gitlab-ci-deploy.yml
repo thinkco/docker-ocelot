@@ -1,0 +1,44 @@
+deploy:osx-x64:
+  stage: deploy
+  image: microsoft/dotnet:2.2-sdk
+  script:
+    - dotnet publish -c Release -r osx-x64
+    - mv bin/Release/netcoreapp2.2/osx-x64/publish osx-x64
+  only:
+    - master
+  artifacts:
+    untracked: false
+    name: "osx-x64"
+    paths:
+      - osx-x64/
+    expire_in: 1 week
+
+deploy:win-x64:
+  stage: deploy
+  image: microsoft/dotnet:2.2-sdk
+  script:
+    - dotnet publish -c Release -r win-x64
+    - mv bin/Release/netcoreapp2.2/win-x64/publish win-x64
+  only:
+    - master
+  artifacts:
+    untracked: false
+    name: "win-x64"
+    paths:
+      - win-x64/
+    expire_in: 1 week
+
+deploy:linux-x64:
+  stage: deploy
+  image: microsoft/dotnet:2.2-sdk
+  script:
+    - dotnet publish -c Release -r linux-x64
+    - mv bin/Release/netcoreapp2.2/linux-x64/publish linux-x64
+  only:
+    - master
+  artifacts:
+    untracked: false
+    name: "linux-x64"
+    paths:
+      - linux-x64/
+    expire_in: 1 week
