@@ -115,7 +115,7 @@ Aggregates: []
 DynamicReRoutes: []
 GlobalConfiguration:
   ServiceDiscoveryProvider:
-    Host: 192.168.1.103
+    Host: consul
     Port: 8500
     Type: Consul
     PollingInterval: 1000
