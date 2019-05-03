@@ -24,8 +24,7 @@ deploy:osx-x64:
   stage: deploy
   image: microsoft/dotnet:2.2-sdk
   script:
-    - dotnet publish -c Release -r osx-x64
-    - mv bin/Release/netcoreapp2.2/osx-x64/publish osx-x64
+    - dotnet publish -c Release -r osx-x64 -o osx-x64
   only:
     - master
   artifacts:
@@ -39,8 +38,7 @@ deploy:win-x64:
   stage: deploy
   image: microsoft/dotnet:2.2-sdk
   script:
-    - dotnet publish -c Release -r win-x64
-    - mv bin/Release/netcoreapp2.2/win-x64/publish win-x64
+    - dotnet publish -c Release -r win-x64 -o win-x64
   only:
     - master
   artifacts:
@@ -54,8 +52,7 @@ deploy:linux-x64:
   stage: deploy
   image: microsoft/dotnet:2.2-sdk
   script:
-    - dotnet publish -c Release -r linux-x64
-    - mv bin/Release/netcoreapp2.2/linux-x64/publish linux-x64
+    - dotnet publish -c Release -r linux-x64 -o linux-x64
   only:
     - master
   artifacts:
@@ -69,8 +66,7 @@ deploy:linux-arm:
   stage: deploy
   image: microsoft/dotnet:2.2-sdk
   script:
-    - dotnet publish -c Release -r linux-arm
-    - mv bin/Release/netcoreapp2.2/linux-arm/publish linux-arm
+    - dotnet publish -c Release -r linux-arm -o linux-arm
   only:
     - master
   artifacts:
