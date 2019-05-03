@@ -23,9 +23,11 @@ Serilog:
   Properties:
     Application: Ocelot
 AllowedHosts: localhost
-Kestrel:
-  EndPoints:
-    Http:
-      Url: http://localhost:8080
-    Https:
-      Url: https://localhost:8443
+### Override Listening Addresses as defined by ASPNETCORE_URLS environment variable
+### Uncomment and modify below
+#Kestrel:
+#  EndPoints:
+#    Http:
+#      Url: http://0.0.0.0:8080
+#    Https:
+#      Url: https://0.0.0.0:8443

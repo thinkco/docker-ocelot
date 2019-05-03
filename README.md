@@ -31,6 +31,14 @@ dotnet run --no-launch-profile
   }
 }
 
+## Overriding Listening Address
+docker run --rm -it -p 80:80/tcp -e ASPNETCORE_URLS="https://0.0.0.0:10443;http://0.0.0.0:10080"  docker-ocelot:latest
+docker run --rm -it -p 10080:10080/tcp -p 10443:10443/tcp -e ASPNETCORE_URLS="https://0.0.0.0:10443;http://0.0.0.0:10080"
+
+## Using a Development Certificate
+dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p crypticpassword
+dotnet dev-certs https --trust
+
 ---
 Brought to you by Thinkco.de!
 
