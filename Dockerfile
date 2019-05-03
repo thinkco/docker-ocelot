@@ -16,11 +16,12 @@ COPY --from=build_container /app/out .
 
 # create some self-signed certificates on the fly
 ADD self-certificate.conf /self-certificate.conf
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config /self-certificate.conf -passin pass:YourSecurePassword
-RUN openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt -passout pass:YourSecurePassword
 RUN apt update && apt install -y libnss3-tools
-RUN mkdir -p $HOME/.pki/nssdb && certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n "localhost" -i localhost.crt && certutil -L -d sql:${HOME}/.pki/nssdb
-RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config /self-certificate.conf -passin pass:YourSecurePassword
+RUN openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt -passout pass:YourSecurePassword -passin pass:YourSecurePassword
+
+#RUN mkdir -p $HOME/.pki/nssdb && certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n "localhost" -i localhost.crt && certutil -L -d sql:${HOME}/.pki/nssdb
+#RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 RUN cp localhost.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
