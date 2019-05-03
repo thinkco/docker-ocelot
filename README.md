@@ -39,7 +39,7 @@ docker run --rm -it -p 10080:10080/tcp -p 10443:10443/tcp -e ASPNETCORE_URLS="ht
 ## Using a Development Certificate
 dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p crypticpassword
 dotnet dev-certs https --trust
-
+chrome://flags/#allow-insecure-localhost
 ---
 Brought to you by Thinkco.de!
 

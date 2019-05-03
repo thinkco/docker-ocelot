@@ -31,11 +31,12 @@ namespace ThinkCode.Ocelot
 
             
             WebHost.CreateDefaultBuilder(args)
-            .ConfigureLogging((hostingContext, logging) =>
+                .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
                     logging.AddSerilog(dispose: true);
                 })
+                .UseKestrel()
                 .UseKestrel(options =>
                 {
                     options.Limits.MaxConcurrentConnections = 100;
@@ -43,6 +44,10 @@ namespace ThinkCode.Ocelot
                     options.Limits.MaxRequestBodySize = 10 * 1024;
                     options.Limits.MinRequestBodyDataRate = new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
                     options.Limits.MinResponseDataRate =  new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+                    //options.Listen(IPAddress.Any, 9080);
+                    //options.Listen(IPAddress.Any, 9443, listenOptions => {
+                    //    listenOptions.UseHttps("testCert.pfx", "testPassword");
+                    //});
                 })
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .ConfigureAppConfiguration((hostingContext, config) =>
