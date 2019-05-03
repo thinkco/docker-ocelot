@@ -42,3 +42,5 @@ deploy:linux-x64:
     paths:
       - linux-x64/
     expire_in: 1 week
+
+# Targets="win-x64 win-x86 win-arm win-arm64 linux-x64 linux-musl-x64 linux-arm osx-x64"

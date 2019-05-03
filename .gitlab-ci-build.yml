@@ -1,4 +1,4 @@
-build-master:
+build:docker-master:
   image: docker:latest
   stage: build
   script:
@@ -8,12 +8,28 @@ build-master:
   only:
     - master
 
-build:
+build:docker-tagged:
   image: docker:latest
   stage: build
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+  except:
+    - master
+
+build:master:
+  image: microsoft/dotnet:2.2-sdk
+  stage: build
+  script:
+    - dotnet build
+  only:
+    - master
+
+build:tagged:
+  image: microsoft/dotnet:2.2-sdk
+  stage: build
+  script:
+    - dotnet build
   except:
     - master
