@@ -1,4 +1,7 @@
 FROM        microsoft/dotnet:2.2-sdk  AS build_container
+
+MAINTAINER  Carlos Lozano Diez <thinkcode@adaptive.me>
+
 WORKDIR     /app
 
 # copy csproj and restore as distinct layers
