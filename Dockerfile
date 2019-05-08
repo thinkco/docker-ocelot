@@ -12,6 +12,10 @@ RUN         dotnet restore
 COPY        . ./
 RUN         dotnet publish -c Release -o out
 
+ENV         ASPNETCORE_URLS="https://0.0.0.0:443;http://0.0.0.0:80"
+ENV         CONSUL_HOST=192.168.1.103
+ENV         CONSUL_PORT=8500
+
 # build runtime image
 FROM        microsoft/dotnet:2.2-runtime-bionic AS runtime_container
 WORKDIR     /app
