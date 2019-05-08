@@ -22,7 +22,7 @@ Serilog:
   - WithThreadId
   Properties:
     Application: Ocelot
-AllowedHosts: localhost
+AllowedHosts: "*"
 ### Override Listening Addresses as defined by ASPNETCORE_URLS environment variable
 ### Uncomment and modify below
 #Kestrel:
