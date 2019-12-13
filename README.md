@@ -1,6 +1,6 @@
 # Ocelot API Gateway
 
-![Ocelot](https://camo.githubusercontent.com/c2118a418c5805c899903bc34fcdf471c9edf0d5/687474703a2f2f74687265656d616d6d616c732e636f6d2f696d616765732f6f63656c6f745f6c6f676f2e706e67)
+![Ocelot](https://threemammals.com/ocelot_logo.png)
 
 Ocelot is a .NET API Gateway. For more information on the product, you should head over to their repository on [Github](https://github.com/ThreeMammals/Ocelot) or check out the product's [documentation](https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html).
 
