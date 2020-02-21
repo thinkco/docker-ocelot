@@ -1,6 +1,6 @@
 # Ocelot API Gateway
 
-![Ocelot](https://threemammals.com/ocelot_logo.png)
+![Ocelot](https://threemammals.com/images/ocelot_logo.png)
 
 Ocelot is a .NET API Gateway. For more information on the product, you should head over to their repository on [Github](https://github.com/ThreeMammals/Ocelot) or check out the product's [documentation](https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html).
 
@@ -99,6 +99,9 @@ You can change the configuration to meet your needs by editing either root or pu
 Enjoy!
 
 ---
-Brought to you by Thinkco.de!
 
 ![ThinkCode](https://avatars2.githubusercontent.com/u/31565447?s=200) 
+
+Built in 🇩🇪
+with ♥️
+by Carlos Lozano Diez / [Gitlab](https://gitlab.com/carloslozano) / [Github](https://github.com/carloslozano) / [LinkedIn](https://www.linkedin.com/in/clozano) / [DockerHub](https://hub.docker.com/u/thinkco)
