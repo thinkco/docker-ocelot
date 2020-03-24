@@ -98,6 +98,10 @@ You can change the configuration to meet your needs by editing either root or pu
 
 Enjoy!
 
+> **Legal matter**: 
+> * All product names, logos, brands, trademarks and registered trademarks are property of their respective owners.  
+> * All company, product and service names used in this website are for identification purposes only. Use of these names, trademarks and brands does not imply endorsement.  
+
 ---
 
 ![ThinkCode](https://avatars2.githubusercontent.com/u/31565447?s=200) 
